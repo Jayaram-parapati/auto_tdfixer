@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="stylesheet" href="Str_styles.css"> -->
+  
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+  
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- #--dropdowns--- -->
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <title>STR Data import</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+     <!-- ##---nav bar--- -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+<!-- ## for tables------ -->
+
+  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+  
+  
+  
+</head>
+<style> 
+
+/* .form-group label {
+    margin-bottom: 10; 
+  }
+
+
+  .form-group select {
+    margin-top: 5px;
+  } */
+
+  *{
+    border:1px solid lightgreen !important;
+  }
+
+ </style> 
+<body>
+  <div class="p-3 m-2 border-0 bd-example m-0 border-0" id="navbar">    
+    <nav class="navbar  bg-body-tertiary bg-primary fixed-top">
+      <div class="container-fluid">
+      <div class="Right-navbar container-fluid" >
+        <a class="navbar-brand" href="#">STR</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span> 
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">STR</h5>
+            <button type="button" class="btn-close"  data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">STR Data import</a>                   
+      </div>
+    </nav>
+
+<div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <form id="myForm">
+        <div class="form-group">
+          <label for="Corporation Label">Corporation Label: <em style="color: red;">*</em></label>
+        </div>
+      </div>
+      <div class="col-md-2">
+          <div class="form-group">
+          <select class="form-select" id="Corporation Label">
+            <option selected>-select-</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+         </div>
+        </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="Profit Center">Profit Center: <em style="color: red;">*</em></label>
+        </div>
+      </div>
+      <div class="col-md-2">
+          <div class="form-group">
+          <select class="form-select" id="Profit Center">
+            <option selected>-select-</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="Corporation_STR_ID">Corporation/STR ID: <em style="color: red;">* </em></label>
+        </div>
+      </div>
+      <div class="col-md-2">
+          <div class="form-group">
+          <input class="form-control" id="Corporation_STR_ID" name="Corporation_STR_ID">
+       </div>
+      </div>
+     </select>
+    </div>
+  </form>
+   </div>
+
+
+<!-- #-------- -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <form id="myForm">
+      <div class="form-group">
+        <label for="Select file">Select file:</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <div class="input-group-prepend"></div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="upload-file" accept=".txt, .pdf, .xls, .xlsx" onchange="displayFileName()"  aria-describedby="inputGroupFileAddon01">
+          <label class="custom-file-label" for="inputGroupFile01" id="file-label">Choose file</label>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button onclick="submitFile()" type="button" class="btn btn-primary">Import</button>
+      <pre id="text-container"></pre>
+      <iframe id="pdf-container" style="display: none;"></iframe>
+    </div>
+  </div>
+</form>
+</div>
+<!-- #-------- -->
+ <div class="container">
+  <div class="row">
+    <div class="col-md-1">
+      <form id="myForm">
+     <div class="form-group">
+       <label for="File Type">File Type:</label>
+        <select class="form-select" id="File Type">
+         <option selected>-select-</option>
+          <option value="Monthly">Monthly</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Both">Both</option>
+          </select>
+        </div>
+      </div> 
+    <div class="col-md-1">
+        <div class="form-group">
+          <label for="Filter Year">Filter Year:</label>
+          <select class="form-select" id="Filter Year">
+            <option selected>-select-</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="col-md-2">
+        <div class="form-group">
+          <label for="Filter Month">Filter Month:</label>
+            <select class="form-select" id="Filter Month">
+      </div>
+    </div>
+  </div>
+</form> 
+</div>  -->
+<!-- #-------
+ 
+<div class="form-group">
+  <label for="Filter Month">Filter Month:</label>
+    <select class="form-select" id="Filter Month">
+</div>
+<div class="col-md-20">
+<div class="container mt-5">
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>File Type</th>
+              <th>Week</th>
+              <th>Import</th>
+              <th>Export</th>
+              <th>Status</th>
+              <th>Download File</th>
+              <th>Action</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>PDF</td>
+              <td>Week 1</td>
+              <td>Yes</td>
+              <td>No</td>
+              <td>Complete</td>
+              <td><a href="#">Download</a></td>
+              <td><button class="btn btn-primary">Edit</button></td>
+          </tr>
+          <tr>
+              <td>Excel</td>
+              <td>Week 2</td>
+              <td>No</td>
+              <td>Yes</td>
+              <td>In Progress</td>
+              <td><a href="#">Download</a></td>
+              <td><button class="btn btn-danger">Delete</button></td>
+          </tr>
+          
+      </tbody> 
+  </table>
+</div>
+
+<script>
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var yearSelect = document.getElementById("Filter Year");
+  var currentYear = new Date().getFullYear();
+  for (var i = currentYear; i >= 2000; i--) {
+      var option = document.createElement("option");
+      option.value = i;
+      option.textContent = i;
+      yearSelect.appendChild(option);
+  }
+
+    var monthSelect = document.getElementById("Filter Month");
+  var months = ["-All-", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  for (var i = 0; i < months.length; i++) {
+      var option = document.createElement("option");
+      option.value = months[i];
+      option.textContent = months[i];
+      monthSelect.appendChild(option);
+  }
+})
+
+
+  function displayFileName() {
+     fileInput = document.getElementById('upload-file');
+     fileLabel = document.getElementById('file-label');
+
+    if (fileInput.files.length > 0) {
+      fileLabel.textContent = fileInput.files[0].name;
+    } 
+    else {
+      fileLabel.textContent = 'Choose file';
+    }
+  }
+
+
+  function submitFile() {
+    const fileInput = document.getElementById('upload-file');
+  var data = new FormData()
+  data.append('file', fileInput.files[0])
+
+
+  fetch("/uploadfile",{"method":"POST", body:data}).then(res=>res.json()).then(data=>{
+    console.log(data);
+  });
+}
+
+
+
+
+</script>
+</body>
+</html>
